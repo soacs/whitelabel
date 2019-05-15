@@ -1,0 +1,750 @@
+
+UAO angular 4 versus Angular 7 reference architecture
+
+1) ViewEncapsulation Mode NONE has to be removed from all components.
+2) Hard coded content needs externalized
+3) Material 7 will need to be used as opposed to material beta 2
+4) Component styles can use but will need to change into scss and scss-theme separation. However, Angular 4 mixins might not
+be used or must be restructed. In whitelabel architecture each component has one theme mixin.
+5) Ngx store is used as opposed to angular redux.
+6) Form config must be analyzed to determine its scalability to support all 26 account types.
+7) Other concern is that for login other components in folio-components might be needed (e.g. login) all login
+requirements are not presently included in functional requirements document.
+
+
+
+
+Development Plan this week:
+
+Whitelabel app
+UAO app
+
+1) Get landing page for UAO up and running in Angular 7 - must be responsive
+2) Ensure constants, interfaces and API code in UAO app.
+3) Make sure white label app theme applies to UAO app
+4) Integrate the landing page with White Label app so white label app can pass parameters to it and show it in its view
+5) Make sure integrated solution is responsive
+6) Get first Personal path started and running in Angular 7
+7) Extract older cold to port what is needed for UAO
+8) keep UAO  whie this process is in place at all times.
+
+
+
+appload.service.ts:26 hostname = localhost
+appload.service.ts:27 EXIT: AppLoadService.constructor()
+debug.reducer.ts:10 [DEBUG] action: @ngrx/store/init {payload: undefined, oldState: undefined, newState: {…}}
+debug.reducer.ts:10 [DEBUG] action: @ngrx/store/update-reducers {payload: undefined, oldState: {…}, newState: {…}}
+debug.reducer.ts:10 [DEBUG] action: @ngrx/store-devtools/recompute {payload: undefined, oldState: {…}, newState: {…}}
+debug.reducer.ts:10 [DEBUG] action: @ngrx/store-devtools/recompute {payload: undefined, oldState: {…}, newState: {…}}
+debug.reducer.ts:10 [DEBUG] action: @ngrx/effects/init {payload: undefined, oldState: {…}, newState: {…}}
+appload.service.ts:31 ENTER getSettings()
+appload.service.ts:32 Call web service API to get settings...
+appload.service.ts:48 EXIT getSettings() - returning promise
+2home:1 Unchecked runtime.lastError: The message port closed before a response was received.
+appload.service.ts:38 Settings returned from web service API:  {theme: "LIGHT-THEME", brand: "firstaffirmative", hostname: "localhost"}
+appload.service.ts:40 typeof:  object
+appload.service.ts:45 APP_SETTINGS:  {theme: "LIGHT-THEME", brand: "firstaffirmative", hostname: "localhost"}
+appload.service.ts:75 brand = firstaffirmative
+content.service.ts:23 brand: firstaffirmative
+menu.service.ts:28 BEGIN MenuService constructor
+appload.service.ts:75 brand = firstaffirmative
+menu.service.ts:30 brand: firstaffirmative
+menu.service.ts:32 URL: https://6n75lix645.execute-api.us-east-1.amazonaws.com/dev/?brand = firstaffirmative
+menu.service.ts:34 END MenuService constructor
+appload.service.ts:53 ENTER getPreLoadedSettings()
+appload.service.ts:54 EXIT getPreLoadedSettings() - returning APP_SETTINGS
+appload.service.ts:75 brand = firstaffirmative
+appload.service.ts:60 theme = LIGHT-THEME
+content.service.ts:28 URL: https://tozt2rln7g.execute-api.us-east-1.amazonaws.com/dev/?firmId = firstaffirmative
+app.component.ts:167 {userAgent: "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA… Gecko) Chrome/74.0.3729.131 Mobile Safari/537.36", os: "Android", browser: "Chrome", device: "Android", os_version: "unknown", …}
+app.component.ts:168 true
+app.component.ts:169 false
+app.component.ts:170 false
+app.component.ts:140 Initial theme: LIGHT-THEME
+debug.reducer.ts:10 [DEBUG] action: [Settings] Change Theme {payload: {…}, oldState: {…}, newState: {…}}
+menu.service.ts:39 initialize menuService data
+app.component.ts:175 hideMenuItem for link display  = webpolicy , undefined
+app.component.ts:175 hideMenuItem for link display  = privacypolicy , undefined
+app.component.ts:175 hideMenuItem for link display  = browsersupport , undefined
+app.component.ts:175 hideMenuItem for link display  = finra , undefined
+app.component.ts:175 hideMenuItem for link display  = finrabrokercheck , undefined
+app.component.ts:175 hideMenuItem for link display  = sipc , undefined
+app.component.ts:175 hideMenuItem for link display  = disclosures , undefined
+app.component.ts:175 hideMenuItem for link display  = webpolicy , undefined
+app.component.ts:175 hideMenuItem for link display  = privacypolicy , undefined
+app.component.ts:175 hideMenuItem for link display  = browsersupport , undefined
+app.component.ts:175 hideMenuItem for link display  = finra , undefined
+app.component.ts:175 hideMenuItem for link display  = finrabrokercheck , undefined
+app.component.ts:175 hideMenuItem for link display  = sipc , undefined
+app.component.ts:175 hideMenuItem for link display  = disclosures , undefined
+debug.reducer.ts:10 [DEBUG] action: @ngrx/router-store/request {payload: {…}, oldState: {…}, newState: {…}}
+core.js:16828 Angular is running in the development mode. Call enableProdMode() to enable the production mode.
+debug.reducer.ts:10 [DEBUG] action: @ngrx/router-store/navigation {payload: {…}, oldState: {…}, newState: {…}}
+appload.service.ts:75 brand = firstaffirmative
+offerings.service.ts:24 brand: firstaffirmative
+offerings.service.ts:26 URL: https://mzxri7ti66.execute-api.us-east-1.amazonaws.com/dev/firstaffirmative
+appload.service.ts:75 brand = firstaffirmative
+content.service.ts:28 URL: https://tozt2rln7g.execute-api.us-east-1.amazonaws.com/dev/?firmId = firstaffirmative
+debug.reducer.ts:10 [DEBUG] action: @ngrx/router-store/navigated {payload: {…}, oldState: {…}, newState: {…}}
+content.service.ts:28 URL: https://tozt2rln7g.execute-api.us-east-1.amazonaws.com/dev/?firmId = firstaffirmative
+is-allow.directive.ts:31 serviceOffering =  "features"
+app.component.ts:175 hideMenuItem for link display  = webpolicy , undefined
+app.component.ts:175 hideMenuItem for link display  = privacypolicy , undefined
+app.component.ts:175 hideMenuItem for link display  = browsersupport , undefined
+app.component.ts:175 hideMenuItem for link display  = finra , undefined
+app.component.ts:175 hideMenuItem for link display  = finrabrokercheck , undefined
+app.component.ts:175 hideMenuItem for link display  = sipc , undefined
+app.component.ts:175 hideMenuItem for link display  = disclosures , undefined
+app.component.ts:175 hideMenuItem for link display  = webpolicy , undefined
+app.component.ts:175 hideMenuItem for link display  = privacypolicy , undefined
+app.component.ts:175 hideMenuItem for link display  = browsersupport , undefined
+app.component.ts:175 hideMenuItem for link display  = finra , undefined
+app.component.ts:175 hideMenuItem for link display  = finrabrokercheck , undefined
+app.component.ts:175 hideMenuItem for link display  = sipc , undefined
+app.component.ts:175 hideMenuItem for link display  = disclosures , undefined
+zone.js:1755 [Violation] 'load' handler took 256ms
+app.component.ts:175 hideMenuItem for link display  = webpolicy , undefined
+app.component.ts:175 hideMenuItem for link display  = privacypolicy , undefined
+app.component.ts:175 hideMenuItem for link display  = browsersupport , undefined
+app.component.ts:175 hideMenuItem for link display  = finra , undefined
+app.component.ts:175 hideMenuItem for link display  = finrabrokercheck , undefined
+app.component.ts:175 hideMenuItem for link display  = sipc , undefined
+app.component.ts:175 hideMenuItem for link display  = disclosures , undefined
+app.component.ts:175 hideMenuItem for link display  = webpolicy , undefined
+app.component.ts:175 hideMenuItem for link display  = privacypolicy , undefined
+app.component.ts:175 hideMenuItem for link display  = browsersupport , undefined
+app.component.ts:175 hideMenuItem for link display  = finra , undefined
+app.component.ts:175 hideMenuItem for link display  = finrabrokercheck , undefined
+app.component.ts:175 hideMenuItem for link display  = sipc , undefined
+app.component.ts:175 hideMenuItem for link display  = disclosures , undefined
+app.component.ts:175 hideMenuItem for link display  = webpolicy , undefined
+app.component.ts:175 hideMenuItem for link display  = privacypolicy , undefined
+app.component.ts:175 hideMenuItem for link display  = browsersupport , undefined
+app.component.ts:175 hideMenuItem for link display  = finra , undefined
+app.component.ts:175 hideMenuItem for link display  = finrabrokercheck , undefined
+app.component.ts:175 hideMenuItem for link display  = sipc , undefined
+app.component.ts:175 hideMenuItem for link display  = disclosures , undefined
+app.component.ts:175 hideMenuItem for link display  = webpolicy , undefined
+app.component.ts:175 hideMenuItem for link display  = privacypolicy , undefined
+app.component.ts:175 hideMenuItem for link display  = browsersupport , undefined
+app.component.ts:175 hideMenuItem for link display  = finra , undefined
+app.component.ts:175 hideMenuItem for link display  = finrabrokercheck , undefined
+app.component.ts:175 hideMenuItem for link display  = sipc , undefined
+app.component.ts:175 hideMenuItem for link display  = disclosures , undefined
+app.component.ts:175 hideMenuItem for link display  = webpolicy , undefined
+app.component.ts:175 hideMenuItem for link display  = privacypolicy , undefined
+app.component.ts:175 hideMenuItem for link display  = browsersupport , undefined
+app.component.ts:175 hideMenuItem for link display  = finra , undefined
+app.component.ts:175 hideMenuItem for link display  = finrabrokercheck , undefined
+app.component.ts:175 hideMenuItem for link display  = sipc , undefined
+app.component.ts:175 hideMenuItem for link display  = disclosures , undefined
+app.component.ts:175 hideMenuItem for link display  = webpolicy , undefined
+app.component.ts:175 hideMenuItem for link display  = privacypolicy , undefined
+app.component.ts:175 hideMenuItem for link display  = browsersupport , undefined
+app.component.ts:175 hideMenuItem for link display  = finra , undefined
+app.component.ts:175 hideMenuItem for link display  = finrabrokercheck , undefined
+app.component.ts:175 hideMenuItem for link display  = sipc , undefined
+app.component.ts:175 hideMenuItem for link display  = disclosures , undefined
+content.service.ts:32 this.content : {"homeTitle":"Welcome to FAFN","contentId":"home","footerText":"First Affirmative Group, LLC, (FAFN) is a member of FINRA/SIPC and an SEC registered investment advisory firm. Brokerage and advisory products are offered through NFBS. These products are not federally insured, are not guaranteed or obligations of the credit union, are not offered, recommended, sanctioned, or encouraged by the federal government, and may involve investment risk, including possible loss of principal.","homeImage":"intro-firstaffirmative.png","firmId":"firstaffirmative","allRights":"2019 First Affirmative Group, All rights reserved","logo":"logo-firstaffirmative.png","logoName":"First Affirmative Digital Advisor","footerImage":"footer-logo-firstaffirmative.png"}
+app.component.ts:175 hideMenuItem for link display  = webpolicy , undefined
+app.component.ts:175 hideMenuItem for link display  = privacypolicy , undefined
+app.component.ts:175 hideMenuItem for link display  = browsersupport , undefined
+app.component.ts:175 hideMenuItem for link display  = finra , undefined
+app.component.ts:175 hideMenuItem for link display  = finrabrokercheck , undefined
+app.component.ts:175 hideMenuItem for link display  = sipc , undefined
+app.component.ts:175 hideMenuItem for link display  = disclosures , undefined
+app.component.ts:175 hideMenuItem for link display  = webpolicy , undefined
+app.component.ts:175 hideMenuItem for link display  = privacypolicy , undefined
+app.component.ts:175 hideMenuItem for link display  = browsersupport , undefined
+app.component.ts:175 hideMenuItem for link display  = finra , undefined
+app.component.ts:175 hideMenuItem for link display  = finrabrokercheck , undefined
+app.component.ts:175 hideMenuItem for link display  = sipc , undefined
+app.component.ts:175 hideMenuItem for link display  = disclosures , undefined
+app.component.ts:175 hideMenuItem for link display  = webpolicy , undefined
+app.component.ts:175 hideMenuItem for link display  = privacypolicy , undefined
+app.component.ts:175 hideMenuItem for link display  = browsersupport , undefined
+app.component.ts:175 hideMenuItem for link display  = finra , undefined
+app.component.ts:175 hideMenuItem for link display  = finrabrokercheck , undefined
+app.component.ts:175 hideMenuItem for link display  = sipc , undefined
+app.component.ts:175 hideMenuItem for link display  = disclosures , undefined
+app.component.ts:175 hideMenuItem for link display  = webpolicy , undefined
+app.component.ts:175 hideMenuItem for link display  = privacypolicy , undefined
+app.component.ts:175 hideMenuItem for link display  = browsersupport , undefined
+app.component.ts:175 hideMenuItem for link display  = finra , undefined
+app.component.ts:175 hideMenuItem for link display  = finrabrokercheck , undefined
+app.component.ts:175 hideMenuItem for link display  = sipc , undefined
+app.component.ts:175 hideMenuItem for link display  = disclosures , undefined
+app.component.ts:175 hideMenuItem for link display  = webpolicy , undefined
+app.component.ts:175 hideMenuItem for link display  = privacypolicy , undefined
+app.component.ts:175 hideMenuItem for link display  = browsersupport , undefined
+app.component.ts:175 hideMenuItem for link display  = finra , undefined
+app.component.ts:175 hideMenuItem for link display  = finrabrokercheck , undefined
+app.component.ts:175 hideMenuItem for link display  = sipc , undefined
+app.component.ts:175 hideMenuItem for link display  = disclosures , undefined
+app.component.ts:175 hideMenuItem for link display  = webpolicy , undefined
+app.component.ts:175 hideMenuItem for link display  = privacypolicy , undefined
+app.component.ts:175 hideMenuItem for link display  = browsersupport , undefined
+app.component.ts:175 hideMenuItem for link display  = finra , undefined
+app.component.ts:175 hideMenuItem for link display  = finrabrokercheck , undefined
+app.component.ts:175 hideMenuItem for link display  = sipc , undefined
+app.component.ts:175 hideMenuItem for link display  = disclosures , undefined
+null:1 GET http://localhost:4200/null 404 (Not Found)
+Image (async)
+push../node_modules/@angular/platform-browser/fesm5/platform-browser.js.DefaultDomRenderer2.setProperty @ platform-browser.js:1133
+push../node_modules/@angular/platform-browser/fesm5/animations.js.AnimationRenderer.setProperty @ animations.js:283
+push../node_modules/@angular/core/fesm5/core.js.DebugRenderer2.setProperty @ core.js:24347
+setElementProperty @ core.js:21109
+checkAndUpdateElementValue @ core.js:21060
+checkAndUpdateElementInline @ core.js:21007
+checkAndUpdateNodeInline @ core.js:23358
+checkAndUpdateNode @ core.js:23324
+debugCheckAndUpdateNode @ core.js:23958
+debugCheckRenderNodeFn @ core.js:23944
+(anonymous) @ AppComponent.html:90
+debugUpdateRenderer @ core.js:23936
+checkAndUpdateView @ core.js:23311
+callViewAction @ core.js:23547
+execComponentViewsAction @ core.js:23489
+checkAndUpdateView @ core.js:23312
+callWithDebugContext @ core.js:24176
+debugCheckAndUpdateView @ core.js:23878
+push../node_modules/@angular/core/fesm5/core.js.ViewRef_.detectChanges @ core.js:21687
+(anonymous) @ core.js:18118
+push../node_modules/@angular/core/fesm5/core.js.ApplicationRef.tick @ core.js:18118
+push../node_modules/@angular/core/fesm5/core.js.ApplicationRef._loadComponent @ core.js:18152
+push../node_modules/@angular/core/fesm5/core.js.ApplicationRef.bootstrap @ core.js:18094
+(anonymous) @ core.js:17807
+push../node_modules/@angular/core/fesm5/core.js.PlatformRef._moduleDoBootstrap @ core.js:17807
+(anonymous) @ core.js:17775
+push../node_modules/zone.js/dist/zone.js.ZoneDelegate.invoke @ zone.js:391
+onInvoke @ core.js:17298
+push../node_modules/zone.js/dist/zone.js.ZoneDelegate.invoke @ zone.js:390
+push../node_modules/zone.js/dist/zone.js.Zone.run @ zone.js:150
+(anonymous) @ zone.js:889
+push../node_modules/zone.js/dist/zone.js.ZoneDelegate.invokeTask @ zone.js:423
+onInvokeTask @ core.js:17289
+push../node_modules/zone.js/dist/zone.js.ZoneDelegate.invokeTask @ zone.js:422
+push../node_modules/zone.js/dist/zone.js.Zone.runTask @ zone.js:195
+drainMicroTaskQueue @ zone.js:601
+push../node_modules/zone.js/dist/zone.js.ZoneTask.invokeTask @ zone.js:502
+invokeTask @ zone.js:1744
+globalZoneAwareCallback @ zone.js:1781
+load (async)
+customScheduleGlobal @ zone.js:1883
+push../node_modules/zone.js/dist/zone.js.ZoneDelegate.scheduleTask @ zone.js:410
+onScheduleTask @ zone.js:301
+push../node_modules/zone.js/dist/zone.js.ZoneDelegate.scheduleTask @ zone.js:404
+push../node_modules/zone.js/dist/zone.js.Zone.scheduleTask @ zone.js:238
+push../node_modules/zone.js/dist/zone.js.Zone.scheduleEventTask @ zone.js:264
+(anonymous) @ zone.js:2054
+(anonymous) @ http.js:1711
+push../node_modules/rxjs/_esm5/internal/Observable.js.Observable._trySubscribe @ Observable.js:43
+push../node_modules/rxjs/_esm5/internal/Observable.js.Observable.subscribe @ Observable.js:29
+push../node_modules/rxjs/_esm5/internal/operators/tap.js.DoOperator.call @ tap.js:18
+push../node_modules/rxjs/_esm5/internal/Observable.js.Observable.subscribe @ Observable.js:24
+(anonymous) @ subscribeTo.js:21
+subscribeToResult @ subscribeToResult.js:11
+push../node_modules/rxjs/_esm5/internal/operators/mergeMap.js.MergeMapSubscriber._innerSub @ mergeMap.js:74
+push../node_modules/rxjs/_esm5/internal/operators/mergeMap.js.MergeMapSubscriber._tryNext @ mergeMap.js:68
+push../node_modules/rxjs/_esm5/internal/operators/mergeMap.js.MergeMapSubscriber._next @ mergeMap.js:51
+push../node_modules/rxjs/_esm5/internal/Subscriber.js.Subscriber.next @ Subscriber.js:53
+(anonymous) @ scalar.js:5
+push../node_modules/rxjs/_esm5/internal/Observable.js.Observable._trySubscribe @ Observable.js:43
+push../node_modules/rxjs/_esm5/internal/Observable.js.Observable.subscribe @ Observable.js:29
+push../node_modules/rxjs/_esm5/internal/operators/mergeMap.js.MergeMapOperator.call @ mergeMap.js:29
+push../node_modules/rxjs/_esm5/internal/Observable.js.Observable.subscribe @ Observable.js:24
+push../node_modules/rxjs/_esm5/internal/operators/filter.js.FilterOperator.call @ filter.js:15
+push../node_modules/rxjs/_esm5/internal/Observable.js.Observable.subscribe @ Observable.js:24
+push../node_modules/rxjs/_esm5/internal/operators/map.js.MapOperator.call @ map.js:18
+push../node_modules/rxjs/_esm5/internal/Observable.js.Observable.subscribe @ Observable.js:24
+(anonymous) @ Observable.js:98
+ZoneAwarePromise @ zone.js:910
+push../node_modules/rxjs/_esm5/internal/Observable.js.Observable.toPromise @ Observable.js:96
+push../src/app/modules/appload/services/appload.service.ts.AppLoadService.getSettings @ appload.service.ts:36
+(anonymous) @ appload.module.ts:7
+push../node_modules/@angular/core/fesm5/core.js.ApplicationInitStatus.runInitializers @ core.js:16738
+(anonymous) @ core.js:17773
+_callAndReportToErrorHandler @ core.js:17866
+(anonymous) @ core.js:17771
+push../node_modules/zone.js/dist/zone.js.ZoneDelegate.invoke @ zone.js:391
+onInvoke @ core.js:17298
+push../node_modules/zone.js/dist/zone.js.ZoneDelegate.invoke @ zone.js:390
+push../node_modules/zone.js/dist/zone.js.Zone.run @ zone.js:150
+push../node_modules/@angular/core/fesm5/core.js.NgZone.run @ core.js:17212
+push../node_modules/@angular/core/fesm5/core.js.PlatformRef.bootstrapModuleFactory @ core.js:17762
+(anonymous) @ core.js:17802
+push../node_modules/zone.js/dist/zone.js.ZoneDelegate.invoke @ zone.js:391
+push../node_modules/zone.js/dist/zone.js.Zone.run @ zone.js:150
+(anonymous) @ zone.js:889
+push../node_modules/zone.js/dist/zone.js.ZoneDelegate.invokeTask @ zone.js:423
+push../node_modules/zone.js/dist/zone.js.Zone.runTask @ zone.js:195
+drainMicroTaskQueue @ zone.js:601
+Promise.then (async)
+scheduleMicroTask @ zone.js:584
+push../node_modules/zone.js/dist/zone.js.ZoneDelegate.scheduleTask @ zone.js:413
+push../node_modules/zone.js/dist/zone.js.Zone.scheduleTask @ zone.js:238
+push../node_modules/zone.js/dist/zone.js.Zone.scheduleMicroTask @ zone.js:258
+scheduleResolveOrReject @ zone.js:879
+ZoneAwarePromise.then @ zone.js:1012
+push../node_modules/@angular/core/fesm5/core.js.PlatformRef.bootstrapModule @ core.js:17802
+./src/main.ts @ main.ts:10
+__webpack_require__ @ bootstrap:83
+0 @ main.ts:10
+__webpack_require__ @ bootstrap:83
+checkDeferredModules @ bootstrap:45
+webpackJsonpCallback @ bootstrap:32
+(anonymous) @ main.js:1
+Show 58 more frames
+app.component.ts:111 data = {"homeTitle":"Welcome to FAFN","contentId":"home","footerText":"First Affirmative Group, LLC, (FAFN) is a member of FINRA/SIPC and an SEC registered investment advisory firm. Brokerage and advisory products are offered through NFBS. These products are not federally insured, are not guaranteed or obligations of the credit union, are not offered, recommended, sanctioned, or encouraged by the federal government, and may involve investment risk, including possible loss of principal.","homeImage":"intro-firstaffirmative.png","firmId":"firstaffirmative","allRights":"2019 First Affirmative Group, All rights reserved","logo":"logo-firstaffirmative.png","logoName":"First Affirmative Digital Advisor","footerImage":"footer-logo-firstaffirmative.png"}
+app.component.ts:121 this.allRights = 2019 First Affirmative Group, All rights reserved
+app.component.ts:122 this.footerImage = ../../assets/footer-logo-firstaffirmative.png
+app.component.ts:123 this.homeImage = ../../assets/intro-firstaffirmative.png
+app.component.ts:124 this.logoName = First Affirmative Digital Advisor
+app.component.ts:175 hideMenuItem for link display  = webpolicy , undefined
+app.component.ts:175 hideMenuItem for link display  = privacypolicy , undefined
+app.component.ts:175 hideMenuItem for link display  = browsersupport , undefined
+app.component.ts:175 hideMenuItem for link display  = finra , undefined
+app.component.ts:175 hideMenuItem for link display  = finrabrokercheck , undefined
+app.component.ts:175 hideMenuItem for link display  = sipc , undefined
+app.component.ts:175 hideMenuItem for link display  = disclosures , undefined
+app.component.ts:175 hideMenuItem for link display  = webpolicy , undefined
+app.component.ts:175 hideMenuItem for link display  = privacypolicy , undefined
+app.component.ts:175 hideMenuItem for link display  = browsersupport , undefined
+app.component.ts:175 hideMenuItem for link display  = finra , undefined
+app.component.ts:175 hideMenuItem for link display  = finrabrokercheck , undefined
+app.component.ts:175 hideMenuItem for link display  = sipc , undefined
+app.component.ts:175 hideMenuItem for link display  = disclosures , undefined
+offerings.service.ts:35 this.serviceOfferingsContent : {"brand":"firstaffirmative","offerings":[{"montecarloChart":{"display":true}},{"cannister":{"display":true}},{"features":{"display":true}},{"examples":{"display":true}},{"uao":{"display":true}}]}
+app.component.ts:175 hideMenuItem for link display  = webpolicy , undefined
+app.component.ts:175 hideMenuItem for link display  = privacypolicy , undefined
+app.component.ts:175 hideMenuItem for link display  = browsersupport , undefined
+app.component.ts:175 hideMenuItem for link display  = finra , undefined
+app.component.ts:175 hideMenuItem for link display  = finrabrokercheck , undefined
+app.component.ts:175 hideMenuItem for link display  = sipc , undefined
+app.component.ts:175 hideMenuItem for link display  = disclosures , undefined
+app.component.ts:175 hideMenuItem for link display  = webpolicy , undefined
+app.component.ts:175 hideMenuItem for link display  = privacypolicy , undefined
+app.component.ts:175 hideMenuItem for link display  = browsersupport , undefined
+app.component.ts:175 hideMenuItem for link display  = finra , undefined
+app.component.ts:175 hideMenuItem for link display  = finrabrokercheck , undefined
+app.component.ts:175 hideMenuItem for link display  = sipc , undefined
+app.component.ts:175 hideMenuItem for link display  = disclosures , undefined
+content.service.ts:32 this.content : {"homeTitle":"Welcome to FAFN","contentId":"home","footerText":"First Affirmative Group, LLC, (FAFN) is a member of FINRA/SIPC and an SEC registered investment advisory firm. Brokerage and advisory products are offered through NFBS. These products are not federally insured, are not guaranteed or obligations of the credit union, are not offered, recommended, sanctioned, or encouraged by the federal government, and may involve investment risk, including possible loss of principal.","homeImage":"intro-firstaffirmative.png","firmId":"firstaffirmative","allRights":"2019 First Affirmative Group, All rights reserved","logo":"logo-firstaffirmative.png","logoName":"First Affirmative Digital Advisor","footerImage":"footer-logo-firstaffirmative.png"}
+app.component.ts:175 hideMenuItem for link display  = webpolicy , undefined
+app.component.ts:175 hideMenuItem for link display  = privacypolicy , undefined
+app.component.ts:175 hideMenuItem for link display  = browsersupport , undefined
+app.component.ts:175 hideMenuItem for link display  = finra , undefined
+app.component.ts:175 hideMenuItem for link display  = finrabrokercheck , undefined
+app.component.ts:175 hideMenuItem for link display  = sipc , undefined
+app.component.ts:175 hideMenuItem for link display  = disclosures , undefined
+app.component.ts:175 hideMenuItem for link display  = webpolicy , undefined
+app.component.ts:175 hideMenuItem for link display  = privacypolicy , undefined
+app.component.ts:175 hideMenuItem for link display  = browsersupport , undefined
+app.component.ts:175 hideMenuItem for link display  = finra , undefined
+app.component.ts:175 hideMenuItem for link display  = finrabrokercheck , undefined
+app.component.ts:175 hideMenuItem for link display  = sipc , undefined
+app.component.ts:175 hideMenuItem for link display  = disclosures , undefined
+app.component.ts:175 hideMenuItem for link display  = webpolicy , undefined
+app.component.ts:175 hideMenuItem for link display  = privacypolicy , undefined
+app.component.ts:175 hideMenuItem for link display  = browsersupport , undefined
+app.component.ts:175 hideMenuItem for link display  = finra , undefined
+app.component.ts:175 hideMenuItem for link display  = finrabrokercheck , undefined
+app.component.ts:175 hideMenuItem for link display  = sipc , undefined
+app.component.ts:175 hideMenuItem for link display  = disclosures , undefined
+app.component.ts:175 hideMenuItem for link display  = webpolicy , undefined
+app.component.ts:175 hideMenuItem for link display  = privacypolicy , undefined
+app.component.ts:175 hideMenuItem for link display  = browsersupport , undefined
+app.component.ts:175 hideMenuItem for link display  = finra , undefined
+app.component.ts:175 hideMenuItem for link display  = finrabrokercheck , undefined
+app.component.ts:175 hideMenuItem for link display  = sipc , undefined
+app.component.ts:175 hideMenuItem for link display  = disclosures , undefined
+menu.service.ts:54 *** key (original) = webPolicy
+menu.service.ts:55 *** key.toLowerCase = webpolicy
+app.component.ts:175 hideMenuItem for link display  = webpolicy , undefined
+app.component.ts:175 hideMenuItem for link display  = privacypolicy , undefined
+app.component.ts:175 hideMenuItem for link display  = browsersupport , undefined
+app.component.ts:175 hideMenuItem for link display  = finra , undefined
+app.component.ts:175 hideMenuItem for link display  = finrabrokercheck , undefined
+app.component.ts:175 hideMenuItem for link display  = sipc , undefined
+app.component.ts:175 hideMenuItem for link display  = disclosures , undefined
+app.component.ts:175 hideMenuItem for link display  = webpolicy , undefined
+app.component.ts:175 hideMenuItem for link display  = privacypolicy , undefined
+app.component.ts:175 hideMenuItem for link display  = browsersupport , undefined
+app.component.ts:175 hideMenuItem for link display  = finra , undefined
+app.component.ts:175 hideMenuItem for link display  = finrabrokercheck , undefined
+app.component.ts:175 hideMenuItem for link display  = sipc , undefined
+app.component.ts:175 hideMenuItem for link display  = disclosures , undefined
+app.component.ts:175 hideMenuItem for link display  = webpolicy , undefined
+app.component.ts:175 hideMenuItem for link display  = privacypolicy , undefined
+app.component.ts:175 hideMenuItem for link display  = browsersupport , undefined
+app.component.ts:175 hideMenuItem for link display  = finra , undefined
+app.component.ts:175 hideMenuItem for link display  = finrabrokercheck , undefined
+app.component.ts:175 hideMenuItem for link display  = sipc , undefined
+app.component.ts:175 hideMenuItem for link display  = disclosures , undefined
+app.component.ts:175 hideMenuItem for link display  = webpolicy , undefined
+app.component.ts:175 hideMenuItem for link display  = privacypolicy , undefined
+app.component.ts:175 hideMenuItem for link display  = browsersupport , undefined
+app.component.ts:175 hideMenuItem for link display  = finra , undefined
+app.component.ts:175 hideMenuItem for link display  = finrabrokercheck , undefined
+app.component.ts:175 hideMenuItem for link display  = sipc , undefined
+app.component.ts:175 hideMenuItem for link display  = disclosures , undefined
+offerings.service.ts:35 this.serviceOfferingsContent : {"brand":"firstaffirmative","offerings":[{"montecarloChart":{"display":true}},{"cannister":{"display":true}},{"features":{"display":true}},{"examples":{"display":true}},{"uao":{"display":true}}]}
+app.component.ts:175 hideMenuItem for link display  = webpolicy , undefined
+app.component.ts:175 hideMenuItem for link display  = privacypolicy , undefined
+app.component.ts:175 hideMenuItem for link display  = browsersupport , undefined
+app.component.ts:175 hideMenuItem for link display  = finra , undefined
+app.component.ts:175 hideMenuItem for link display  = finrabrokercheck , undefined
+app.component.ts:175 hideMenuItem for link display  = sipc , undefined
+app.component.ts:175 hideMenuItem for link display  = disclosures , undefined
+app.component.ts:175 hideMenuItem for link display  = webpolicy , undefined
+app.component.ts:175 hideMenuItem for link display  = privacypolicy , undefined
+app.component.ts:175 hideMenuItem for link display  = browsersupport , undefined
+app.component.ts:175 hideMenuItem for link display  = finra , undefined
+app.component.ts:175 hideMenuItem for link display  = finrabrokercheck , undefined
+app.component.ts:175 hideMenuItem for link display  = sipc , undefined
+app.component.ts:175 hideMenuItem for link display  = disclosures , undefined
+content.service.ts:32 this.content : {"homeTitle":"Welcome to FAFN","contentId":"home","footerText":"First Affirmative Group, LLC, (FAFN) is a member of FINRA/SIPC and an SEC registered investment advisory firm. Brokerage and advisory products are offered through NFBS. These products are not federally insured, are not guaranteed or obligations of the credit union, are not offered, recommended, sanctioned, or encouraged by the federal government, and may involve investment risk, including possible loss of principal.","homeImage":"intro-firstaffirmative.png","firmId":"firstaffirmative","allRights":"2019 First Affirmative Group, All rights reserved","logo":"logo-firstaffirmative.png","logoName":"First Affirmative Digital Advisor","footerImage":"footer-logo-firstaffirmative.png"}
+app.component.ts:175 hideMenuItem for link display  = webpolicy , undefined
+app.component.ts:175 hideMenuItem for link display  = privacypolicy , undefined
+app.component.ts:175 hideMenuItem for link display  = browsersupport , undefined
+app.component.ts:175 hideMenuItem for link display  = finra , undefined
+app.component.ts:175 hideMenuItem for link display  = finrabrokercheck , undefined
+app.component.ts:175 hideMenuItem for link display  = sipc , undefined
+app.component.ts:175 hideMenuItem for link display  = disclosures , undefined
+app.component.ts:175 hideMenuItem for link display  = webpolicy , undefined
+app.component.ts:175 hideMenuItem for link display  = privacypolicy , undefined
+app.component.ts:175 hideMenuItem for link display  = browsersupport , undefined
+app.component.ts:175 hideMenuItem for link display  = finra , undefined
+app.component.ts:175 hideMenuItem for link display  = finrabrokercheck , undefined
+app.component.ts:175 hideMenuItem for link display  = sipc , undefined
+app.component.ts:175 hideMenuItem for link display  = disclosures , undefined
+is-allow.directive.ts:39 sample = {"montecarloChart":{"display":true}}
+is-allow.directive.ts:39 sample = {"cannister":{"display":true}}
+is-allow.directive.ts:39 sample = {"features":{"display":true}}
+is-allow.directive.ts:41 serviceOffering in sample, sample = {"features":{"display":true}}
+is-allow.directive.ts:39 sample = {"examples":{"display":true}}
+is-allow.directive.ts:39 sample = {"uao":{"display":true}}
+is-allow.directive.ts:47 NOW serviceOffering, display =  features , true
+app.component.ts:175 hideMenuItem for link display  = webpolicy , undefined
+app.component.ts:175 hideMenuItem for link display  = privacypolicy , undefined
+app.component.ts:175 hideMenuItem for link display  = browsersupport , undefined
+app.component.ts:175 hideMenuItem for link display  = finra , undefined
+app.component.ts:175 hideMenuItem for link display  = finrabrokercheck , undefined
+app.component.ts:175 hideMenuItem for link display  = sipc , undefined
+app.component.ts:175 hideMenuItem for link display  = disclosures , undefined
+app.component.ts:175 hideMenuItem for link display  = webpolicy , undefined
+app.component.ts:175 hideMenuItem for link display  = privacypolicy , undefined
+app.component.ts:175 hideMenuItem for link display  = browsersupport , undefined
+app.component.ts:175 hideMenuItem for link display  = finra , undefined
+app.component.ts:175 hideMenuItem for link display  = finrabrokercheck , undefined
+app.component.ts:175 hideMenuItem for link display  = sipc , undefined
+app.component.ts:175 hideMenuItem for link display  = disclosures , undefined
+app.component.ts:175 hideMenuItem for link display  = webpolicy , undefined
+app.component.ts:175 hideMenuItem for link display  = privacypolicy , undefined
+app.component.ts:175 hideMenuItem for link display  = browsersupport , undefined
+app.component.ts:175 hideMenuItem for link display  = finra , undefined
+app.component.ts:175 hideMenuItem for link display  = finrabrokercheck , undefined
+app.component.ts:175 hideMenuItem for link display  = sipc , undefined
+app.component.ts:175 hideMenuItem for link display  = disclosures , undefined
+app.component.ts:175 hideMenuItem for link display  = webpolicy , undefined
+app.component.ts:175 hideMenuItem for link display  = privacypolicy , undefined
+app.component.ts:175 hideMenuItem for link display  = browsersupport , undefined
+app.component.ts:175 hideMenuItem for link display  = finra , undefined
+app.component.ts:175 hideMenuItem for link display  = finrabrokercheck , undefined
+app.component.ts:175 hideMenuItem for link display  = sipc , undefined
+app.component.ts:175 hideMenuItem for link display  = disclosures , undefined
+core.js:15723 ERROR TypeError: Cannot read property 'display' of undefined
+    at SafeSubscriber._next (menu.service.ts:56)
+    at SafeSubscriber.push../node_modules/rxjs/_esm5/internal/Subscriber.js.SafeSubscriber.__tryOrUnsub (Subscriber.js:194)
+    at SafeSubscriber.push../node_modules/rxjs/_esm5/internal/Subscriber.js.SafeSubscriber.next (Subscriber.js:132)
+    at Subscriber.push../node_modules/rxjs/_esm5/internal/Subscriber.js.Subscriber._next (Subscriber.js:76)
+    at Subscriber.push../node_modules/rxjs/_esm5/internal/Subscriber.js.Subscriber.next (Subscriber.js:53)
+    at MapSubscriber.push../node_modules/rxjs/_esm5/internal/operators/map.js.MapSubscriber._next (map.js:41)
+    at MapSubscriber.push../node_modules/rxjs/_esm5/internal/Subscriber.js.Subscriber.next (Subscriber.js:53)
+    at MapSubscriber.push../node_modules/rxjs/_esm5/internal/operators/map.js.MapSubscriber._next (map.js:41)
+    at MapSubscriber.push../node_modules/rxjs/_esm5/internal/Subscriber.js.Subscriber.next (Subscriber.js:53)
+    at FilterSubscriber.push../node_modules/rxjs/_esm5/internal/operators/filter.js.FilterSubscriber._next (filter.js:38)
+defaultErrorLogger @ core.js:15723
+push../node_modules/@angular/core/fesm5/core.js.ErrorHandler.handleError @ core.js:15771
+push../src/app/core/error-handler/app-error-handler.service.ts.AppErrorHandler.handleError @ app-error-handler.service.ts:24
+next @ core.js:17770
+schedulerFn @ core.js:13514
+push../node_modules/rxjs/_esm5/internal/Subscriber.js.SafeSubscriber.__tryOrUnsub @ Subscriber.js:194
+push../node_modules/rxjs/_esm5/internal/Subscriber.js.SafeSubscriber.next @ Subscriber.js:132
+push../node_modules/rxjs/_esm5/internal/Subscriber.js.Subscriber._next @ Subscriber.js:76
+push../node_modules/rxjs/_esm5/internal/Subscriber.js.Subscriber.next @ Subscriber.js:53
+push../node_modules/rxjs/_esm5/internal/Subject.js.Subject.next @ Subject.js:47
+push../node_modules/@angular/core/fesm5/core.js.EventEmitter.emit @ core.js:13498
+(anonymous) @ core.js:17320
+push../node_modules/zone.js/dist/zone.js.ZoneDelegate.invoke @ zone.js:391
+push../node_modules/zone.js/dist/zone.js.Zone.run @ zone.js:150
+push../node_modules/@angular/core/fesm5/core.js.NgZone.runOutsideAngular @ core.js:17257
+onHandleError @ core.js:17320
+push../node_modules/zone.js/dist/zone.js.ZoneDelegate.handleError @ zone.js:395
+push../node_modules/zone.js/dist/zone.js.Zone.runTask @ zone.js:198
+push../node_modules/zone.js/dist/zone.js.ZoneTask.invokeTask @ zone.js:498
+ZoneTask.invoke @ zone.js:487
+timer @ zone.js:2281
+setTimeout (async)
+scheduleTask @ zone.js:2302
+push../node_modules/zone.js/dist/zone.js.ZoneDelegate.scheduleTask @ zone.js:410
+onScheduleTask @ zone.js:301
+push../node_modules/zone.js/dist/zone.js.ZoneDelegate.scheduleTask @ zone.js:404
+push../node_modules/zone.js/dist/zone.js.Zone.scheduleTask @ zone.js:238
+push../node_modules/zone.js/dist/zone.js.Zone.scheduleMacroTask @ zone.js:261
+scheduleMacroTaskWithCurrentZone @ zone.js:1245
+(anonymous) @ zone.js:2317
+proto.<computed> @ zone.js:1569
+hostReportError @ hostReportError.js:3
+push../node_modules/rxjs/_esm5/internal/Subscriber.js.SafeSubscriber.__tryOrUnsub @ Subscriber.js:202
+push../node_modules/rxjs/_esm5/internal/Subscriber.js.SafeSubscriber.next @ Subscriber.js:132
+push../node_modules/rxjs/_esm5/internal/Subscriber.js.Subscriber._next @ Subscriber.js:76
+push../node_modules/rxjs/_esm5/internal/Subscriber.js.Subscriber.next @ Subscriber.js:53
+push../node_modules/rxjs/_esm5/internal/operators/map.js.MapSubscriber._next @ map.js:41
+push../node_modules/rxjs/_esm5/internal/Subscriber.js.Subscriber.next @ Subscriber.js:53
+push../node_modules/rxjs/_esm5/internal/operators/map.js.MapSubscriber._next @ map.js:41
+push../node_modules/rxjs/_esm5/internal/Subscriber.js.Subscriber.next @ Subscriber.js:53
+push../node_modules/rxjs/_esm5/internal/operators/filter.js.FilterSubscriber._next @ filter.js:38
+push../node_modules/rxjs/_esm5/internal/Subscriber.js.Subscriber.next @ Subscriber.js:53
+push../node_modules/rxjs/_esm5/internal/operators/mergeMap.js.MergeMapSubscriber.notifyNext @ mergeMap.js:84
+push../node_modules/rxjs/_esm5/internal/InnerSubscriber.js.InnerSubscriber._next @ InnerSubscriber.js:15
+push../node_modules/rxjs/_esm5/internal/Subscriber.js.Subscriber.next @ Subscriber.js:53
+push../node_modules/rxjs/_esm5/internal/operators/tap.js.TapSubscriber._next @ tap.js:51
+push../node_modules/rxjs/_esm5/internal/Subscriber.js.Subscriber.next @ Subscriber.js:53
+onLoad @ http.js:1625
+push../node_modules/zone.js/dist/zone.js.ZoneDelegate.invokeTask @ zone.js:423
+onInvokeTask @ core.js:17289
+push../node_modules/zone.js/dist/zone.js.ZoneDelegate.invokeTask @ zone.js:422
+push../node_modules/zone.js/dist/zone.js.Zone.runTask @ zone.js:195
+push../node_modules/zone.js/dist/zone.js.ZoneTask.invokeTask @ zone.js:498
+invokeTask @ zone.js:1744
+globalZoneAwareCallback @ zone.js:1781
+load (async)
+customScheduleGlobal @ zone.js:1883
+push../node_modules/zone.js/dist/zone.js.ZoneDelegate.scheduleTask @ zone.js:410
+onScheduleTask @ zone.js:301
+push../node_modules/zone.js/dist/zone.js.ZoneDelegate.scheduleTask @ zone.js:404
+push../node_modules/zone.js/dist/zone.js.Zone.scheduleTask @ zone.js:238
+push../node_modules/zone.js/dist/zone.js.Zone.scheduleEventTask @ zone.js:264
+(anonymous) @ zone.js:2054
+(anonymous) @ http.js:1711
+push../node_modules/rxjs/_esm5/internal/Observable.js.Observable._trySubscribe @ Observable.js:43
+push../node_modules/rxjs/_esm5/internal/Observable.js.Observable.subscribe @ Observable.js:29
+push../node_modules/rxjs/_esm5/internal/operators/tap.js.DoOperator.call @ tap.js:18
+push../node_modules/rxjs/_esm5/internal/Observable.js.Observable.subscribe @ Observable.js:24
+(anonymous) @ subscribeTo.js:21
+subscribeToResult @ subscribeToResult.js:11
+push../node_modules/rxjs/_esm5/internal/operators/mergeMap.js.MergeMapSubscriber._innerSub @ mergeMap.js:74
+push../node_modules/rxjs/_esm5/internal/operators/mergeMap.js.MergeMapSubscriber._tryNext @ mergeMap.js:68
+push../node_modules/rxjs/_esm5/internal/operators/mergeMap.js.MergeMapSubscriber._next @ mergeMap.js:51
+push../node_modules/rxjs/_esm5/internal/Subscriber.js.Subscriber.next @ Subscriber.js:53
+(anonymous) @ scalar.js:5
+push../node_modules/rxjs/_esm5/internal/Observable.js.Observable._trySubscribe @ Observable.js:43
+push../node_modules/rxjs/_esm5/internal/Observable.js.Observable.subscribe @ Observable.js:29
+push../node_modules/rxjs/_esm5/internal/operators/mergeMap.js.MergeMapOperator.call @ mergeMap.js:29
+push../node_modules/rxjs/_esm5/internal/Observable.js.Observable.subscribe @ Observable.js:24
+push../node_modules/rxjs/_esm5/internal/operators/filter.js.FilterOperator.call @ filter.js:15
+push../node_modules/rxjs/_esm5/internal/Observable.js.Observable.subscribe @ Observable.js:24
+push../node_modules/rxjs/_esm5/internal/operators/map.js.MapOperator.call @ map.js:18
+push../node_modules/rxjs/_esm5/internal/Observable.js.Observable.subscribe @ Observable.js:24
+push../node_modules/rxjs/_esm5/internal/operators/map.js.MapOperator.call @ map.js:18
+push../node_modules/rxjs/_esm5/internal/Observable.js.Observable.subscribe @ Observable.js:24
+push../src/app/services/menu/menu.service.ts.MenuService.initialize @ menu.service.ts:42
+push../src/app/components/app.component.ts.AppComponent.ngOnInit @ app.component.ts:143
+checkAndUpdateDirectiveInline @ core.js:22098
+checkAndUpdateNodeInline @ core.js:23362
+checkAndUpdateNode @ core.js:23324
+debugCheckAndUpdateNode @ core.js:23958
+debugCheckDirectivesFn @ core.js:23918
+(anonymous) @ AppComponent_Host.ngfactory.js? [sm]:1
+debugUpdateDirectives @ core.js:23910
+checkAndUpdateView @ core.js:23306
+callWithDebugContext @ core.js:24176
+debugCheckAndUpdateView @ core.js:23878
+push../node_modules/@angular/core/fesm5/core.js.ViewRef_.detectChanges @ core.js:21687
+(anonymous) @ core.js:18118
+push../node_modules/@angular/core/fesm5/core.js.ApplicationRef.tick @ core.js:18118
+push../node_modules/@angular/core/fesm5/core.js.ApplicationRef._loadComponent @ core.js:18152
+push../node_modules/@angular/core/fesm5/core.js.ApplicationRef.bootstrap @ core.js:18094
+(anonymous) @ core.js:17807
+push../node_modules/@angular/core/fesm5/core.js.PlatformRef._moduleDoBootstrap @ core.js:17807
+(anonymous) @ core.js:17775
+push../node_modules/zone.js/dist/zone.js.ZoneDelegate.invoke @ zone.js:391
+onInvoke @ core.js:17298
+push../node_modules/zone.js/dist/zone.js.ZoneDelegate.invoke @ zone.js:390
+push../node_modules/zone.js/dist/zone.js.Zone.run @ zone.js:150
+(anonymous) @ zone.js:889
+push../node_modules/zone.js/dist/zone.js.ZoneDelegate.invokeTask @ zone.js:423
+onInvokeTask @ core.js:17289
+push../node_modules/zone.js/dist/zone.js.ZoneDelegate.invokeTask @ zone.js:422
+push../node_modules/zone.js/dist/zone.js.Zone.runTask @ zone.js:195
+drainMicroTaskQueue @ zone.js:601
+push../node_modules/zone.js/dist/zone.js.ZoneTask.invokeTask @ zone.js:502
+invokeTask @ zone.js:1744
+globalZoneAwareCallback @ zone.js:1781
+load (async)
+customScheduleGlobal @ zone.js:1883
+push../node_modules/zone.js/dist/zone.js.ZoneDelegate.scheduleTask @ zone.js:410
+onScheduleTask @ zone.js:301
+push../node_modules/zone.js/dist/zone.js.ZoneDelegate.scheduleTask @ zone.js:404
+push../node_modules/zone.js/dist/zone.js.Zone.scheduleTask @ zone.js:238
+push../node_modules/zone.js/dist/zone.js.Zone.scheduleEventTask @ zone.js:264
+(anonymous) @ zone.js:2054
+(anonymous) @ http.js:1711
+push../node_modules/rxjs/_esm5/internal/Observable.js.Observable._trySubscribe @ Observable.js:43
+push../node_modules/rxjs/_esm5/internal/Observable.js.Observable.subscribe @ Observable.js:29
+push../node_modules/rxjs/_esm5/internal/operators/tap.js.DoOperator.call @ tap.js:18
+push../node_modules/rxjs/_esm5/internal/Observable.js.Observable.subscribe @ Observable.js:24
+(anonymous) @ subscribeTo.js:21
+subscribeToResult @ subscribeToResult.js:11
+push../node_modules/rxjs/_esm5/internal/operators/mergeMap.js.MergeMapSubscriber._innerSub @ mergeMap.js:74
+push../node_modules/rxjs/_esm5/internal/operators/mergeMap.js.MergeMapSubscriber._tryNext @ mergeMap.js:68
+push../node_modules/rxjs/_esm5/internal/operators/mergeMap.js.MergeMapSubscriber._next @ mergeMap.js:51
+push../node_modules/rxjs/_esm5/internal/Subscriber.js.Subscriber.next @ Subscriber.js:53
+(anonymous) @ scalar.js:5
+push../node_modules/rxjs/_esm5/internal/Observable.js.Observable._trySubscribe @ Observable.js:43
+push../node_modules/rxjs/_esm5/internal/Observable.js.Observable.subscribe @ Observable.js:29
+push../node_modules/rxjs/_esm5/internal/operators/mergeMap.js.MergeMapOperator.call @ mergeMap.js:29
+push../node_modules/rxjs/_esm5/internal/Observable.js.Observable.subscribe @ Observable.js:24
+push../node_modules/rxjs/_esm5/internal/operators/filter.js.FilterOperator.call @ filter.js:15
+push../node_modules/rxjs/_esm5/internal/Observable.js.Observable.subscribe @ Observable.js:24
+push../node_modules/rxjs/_esm5/internal/operators/map.js.MapOperator.call @ map.js:18
+push../node_modules/rxjs/_esm5/internal/Observable.js.Observable.subscribe @ Observable.js:24
+(anonymous) @ Observable.js:98
+ZoneAwarePromise @ zone.js:910
+push../node_modules/rxjs/_esm5/internal/Observable.js.Observable.toPromise @ Observable.js:96
+push../src/app/modules/appload/services/appload.service.ts.AppLoadService.getSettings @ appload.service.ts:36
+(anonymous) @ appload.module.ts:7
+push../node_modules/@angular/core/fesm5/core.js.ApplicationInitStatus.runInitializers @ core.js:16738
+(anonymous) @ core.js:17773
+_callAndReportToErrorHandler @ core.js:17866
+(anonymous) @ core.js:17771
+push../node_modules/zone.js/dist/zone.js.ZoneDelegate.invoke @ zone.js:391
+onInvoke @ core.js:17298
+push../node_modules/zone.js/dist/zone.js.ZoneDelegate.invoke @ zone.js:390
+push../node_modules/zone.js/dist/zone.js.Zone.run @ zone.js:150
+push../node_modules/@angular/core/fesm5/core.js.NgZone.run @ core.js:17212
+push../node_modules/@angular/core/fesm5/core.js.PlatformRef.bootstrapModuleFactory @ core.js:17762
+(anonymous) @ core.js:17802
+push../node_modules/zone.js/dist/zone.js.ZoneDelegate.invoke @ zone.js:391
+push../node_modules/zone.js/dist/zone.js.Zone.run @ zone.js:150
+(anonymous) @ zone.js:889
+push../node_modules/zone.js/dist/zone.js.ZoneDelegate.invokeTask @ zone.js:423
+push../node_modules/zone.js/dist/zone.js.Zone.runTask @ zone.js:195
+drainMicroTaskQueue @ zone.js:601
+Promise.then (async)
+scheduleMicroTask @ zone.js:584
+push../node_modules/zone.js/dist/zone.js.ZoneDelegate.scheduleTask @ zone.js:413
+push../node_modules/zone.js/dist/zone.js.Zone.scheduleTask @ zone.js:238
+push../node_modules/zone.js/dist/zone.js.Zone.scheduleMicroTask @ zone.js:258
+scheduleResolveOrReject @ zone.js:879
+ZoneAwarePromise.then @ zone.js:1012
+push../node_modules/@angular/core/fesm5/core.js.PlatformRef.bootstrapModule @ core.js:17802
+./src/main.ts @ main.ts:10
+__webpack_require__ @ bootstrap:83
+0 @ main.ts:10
+__webpack_require__ @ bootstrap:83
+checkDeferredModules @ bootstrap:45
+webpackJsonpCallback @ bootstrap:32
+(anonymous) @ main.js:1
+Show 135 more frames
+app.component.ts:175 hideMenuItem for link display  = webpolicy , undefined
+app.component.ts:175 hideMenuItem for link display  = privacypolicy , undefined
+app.component.ts:175 hideMenuItem for link display  = browsersupport , undefined
+app.component.ts:175 hideMenuItem for link display  = finra , undefined
+app.component.ts:175 hideMenuItem for link display  = finrabrokercheck , undefined
+app.component.ts:175 hideMenuItem for link display  = sipc , undefined
+app.component.ts:175 hideMenuItem for link display  = disclosures , undefined
+app.component.ts:175 hideMenuItem for link display  = webpolicy , undefined
+app.component.ts:175 hideMenuItem for link display  = privacypolicy , undefined
+app.component.ts:175 hideMenuItem for link display  = browsersupport , undefined
+app.component.ts:175 hideMenuItem for link display  = finra , undefined
+app.component.ts:175 hideMenuItem for link display  = finrabrokercheck , undefined
+app.component.ts:175 hideMenuItem for link display  = sipc , undefined
+app.component.ts:175 hideMenuItem for link display  = disclosures , undefined
+zone.js:2279 [Violation] 'setTimeout' handler took 61ms
+home.component.ts:65 fff this.homeTitle = Welcome to FAFN
+app.component.ts:175 hideMenuItem for link display  = webpolicy , undefined
+app.component.ts:175 hideMenuItem for link display  = privacypolicy , undefined
+app.component.ts:175 hideMenuItem for link display  = browsersupport , undefined
+app.component.ts:175 hideMenuItem for link display  = finra , undefined
+app.component.ts:175 hideMenuItem for link display  = finrabrokercheck , undefined
+app.component.ts:175 hideMenuItem for link display  = sipc , undefined
+app.component.ts:175 hideMenuItem for link display  = disclosures , undefined
+app.component.ts:175 hideMenuItem for link display  = webpolicy , undefined
+app.component.ts:175 hideMenuItem for link display  = privacypolicy , undefined
+app.component.ts:175 hideMenuItem for link display  = browsersupport , undefined
+app.component.ts:175 hideMenuItem for link display  = finra , undefined
+app.component.ts:175 hideMenuItem for link display  = finrabrokercheck , undefined
+app.component.ts:175 hideMenuItem for link display  = sipc , undefined
+app.component.ts:175 hideMenuItem for link display  = disclosures , undefined
+app.component.ts:175 hideMenuItem for link display  = webpolicy , undefined
+app.component.ts:175 hideMenuItem for link display  = privacypolicy , undefined
+app.component.ts:175 hideMenuItem for link display  = browsersupport , undefined
+app.component.ts:175 hideMenuItem for link display  = finra , undefined
+app.component.ts:175 hideMenuItem for link display  = finrabrokercheck , undefined
+app.component.ts:175 hideMenuItem for link display  = sipc , undefined
+app.component.ts:175 hideMenuItem for link display  = disclosures , undefined
+app.component.ts:175 hideMenuItem for link display  = webpolicy , undefined
+app.component.ts:175 hideMenuItem for link display  = privacypolicy , undefined
+app.component.ts:175 hideMenuItem for link display  = browsersupport , undefined
+app.component.ts:175 hideMenuItem for link display  = finra , undefined
+app.component.ts:175 hideMenuItem for link display  = finrabrokercheck , undefined
+app.component.ts:175 hideMenuItem for link display  = sipc , undefined
+app.component.ts:175 hideMenuItem for link display  = disclosures , undefined
+app.component.ts:175 hideMenuItem for link display  = webpolicy , undefined
+app.component.ts:175 hideMenuItem for link display  = privacypolicy , undefined
+app.component.ts:175 hideMenuItem for link display  = browsersupport , undefined
+app.component.ts:175 hideMenuItem for link display  = finra , undefined
+app.component.ts:175 hideMenuItem for link display  = finrabrokercheck , undefined
+app.component.ts:175 hideMenuItem for link display  = sipc , undefined
+app.component.ts:175 hideMenuItem for link display  = disclosures , undefined
+app.component.ts:175 hideMenuItem for link display  = webpolicy , undefined
+app.component.ts:175 hideMenuItem for link display  = privacypolicy , undefined
+app.component.ts:175 hideMenuItem for link display  = browsersupport , undefined
+app.component.ts:175 hideMenuItem for link display  = finra , undefined
+app.component.ts:175 hideMenuItem for link display  = finrabrokercheck , undefined
+app.component.ts:175 hideMenuItem for link display  = sipc , undefined
+app.component.ts:175 hideMenuItem for link display  = disclosures , undefined
+app.component.ts:175 hideMenuItem for link display  = webpolicy , undefined
+app.component.ts:175 hideMenuItem for link display  = privacypolicy , undefined
+app.component.ts:175 hideMenuItem for link display  = browsersupport , undefined
+app.component.ts:175 hideMenuItem for link display  = finra , undefined
+app.component.ts:175 hideMenuItem for link display  = finrabrokercheck , undefined
+app.component.ts:175 hideMenuItem for link display  = sipc , undefined
+app.component.ts:175 hideMenuItem for link display  = disclosures , undefined
+app.component.ts:175 hideMenuItem for link display  = webpolicy , undefined
+app.component.ts:175 hideMenuItem for link display  = privacypolicy , undefined
+app.component.ts:175 hideMenuItem for link display  = browsersupport , undefined
+app.component.ts:175 hideMenuItem for link display  = finra , undefined
+app.component.ts:175 hideMenuItem for link display  = finrabrokercheck , undefined
+app.component.ts:175 hideMenuItem for link display  = sipc , undefined
+app.component.ts:175 hideMenuItem for link display  = disclosures , undefined
+app.component.ts:175 hideMenuItem for link display  = webpolicy , undefined
+app.component.ts:175 hideMenuItem for link display  = privacypolicy , undefined
+app.component.ts:175 hideMenuItem for link display  = browsersupport , undefined
+app.component.ts:175 hideMenuItem for link display  = finra , undefined
+app.component.ts:175 hideMenuItem for link display  = finrabrokercheck , undefined
+app.component.ts:175 hideMenuItem for link display  = sipc , undefined
+app.component.ts:175 hideMenuItem for link display  = disclosures , undefined
+app.component.ts:175 hideMenuItem for link display  = webpolicy , undefined
+app.component.ts:175 hideMenuItem for link display  = privacypolicy , undefined
+app.component.ts:175 hideMenuItem for link display  = browsersupport , undefined
+app.component.ts:175 hideMenuItem for link display  = finra , undefined
+app.component.ts:175 hideMenuItem for link display  = finrabrokercheck , undefined
+app.component.ts:175 hideMenuItem for link display  = sipc , undefined
+app.component.ts:175 hideMenuItem for link display  = disclosures , undefined
+app.component.ts:175 hideMenuItem for link display  = webpolicy , undefined
+app.component.ts:175 hideMenuItem for link display  = privacypolicy , undefined
+app.component.ts:175 hideMenuItem for link display  = browsersupport , undefined
+app.component.ts:175 hideMenuItem for link display  = finra , undefined
+app.component.ts:175 hideMenuItem for link display  = finrabrokercheck , undefined
+app.component.ts:175 hideMenuItem for link display  = sipc , undefined
+app.component.ts:175 hideMenuItem for link display  = disclosures , undefined
+app.component.ts:175 hideMenuItem for link display  = webpolicy , undefined
+app.component.ts:175 hideMenuItem for link display  = privacypolicy , undefined
+app.component.ts:175 hideMenuItem for link display  = browsersupport , undefined
+app.component.ts:175 hideMenuItem for link display  = finra , undefined
+app.component.ts:175 hideMenuItem for link display  = finrabrokercheck , undefined
+app.component.ts:175 hideMenuItem for link display  = sipc , undefined
+app.component.ts:175 hideMenuItem for link display  = disclosures , undefined
